@@ -1,17 +1,51 @@
 ### SEIRD_Model_Simulation
-This repository contains a Python simulation of the SEIRD (Susceptible, Exposed, Infected, Recovered, Dead) epidemic model. Using the Python turtle module for visualization, the simulation models the spread and control of an infectious disease within a population over time.
+Welcome to the SEIRD Model Simulation repository! The simulation is a representation of an enclosed ecosystem where individuals, represented by agents, interact with each other within defined spaces such as the general population area, a hospital, and a cemetery. These interactions can lead to the spread of an infectious disease, following a modified SEIRD model which includes an exposed (latent infection) state.
 
-## Files
+## Project Overview
+The SEIRD model is a compartmental model used in epidemiology to simulate the progression and control of infectious diseases. In this simulation:
+- **Susceptible (S)**: Individuals who can contract the disease.
+- **Exposed (E)**: Individuals who have been exposed to the disease but are not yet infectious.
+- **Infected (I)**: Individuals who have been infected and can spread the disease to others.
+- **Recovered (R)**: Individuals who have recovered from the disease and are no longer infectious.
+- **Dead (D)**: Individuals who have died from the disease.
 
-agent.py: Defines the Agent class to represent individuals in the population. Agents have states representing their disease status (Susceptible, Exposed, Infected, Recovered, Dead) and behaviors such as movement, infection transmission, and collision avoidance.
-box.py: Implements the Box class, used for creating bounded areas such as hospitals and cemeteries in the simulation space.
-modeler.py: Contains the main simulation loop that initializes the population, updates agents' states, and triggers their interactions.
-utils.py: Provides utility functions for displaying the count of agents in each state and for plotting the progression of the epidemic using matplotlib.
-SIR.png: An example output graph showing the dynamics of the epidemic over time, with the number of susceptible, exposed, infected, recovered, and dead individuals.
+## Simulation Flow
 
-## Features
+At each timestep, the following occurs:
 
- Real-time simulation of agent interactions and disease spread.
-Customizable parameters for population size, initial number of infected individuals, and the size of specialized areas like hospitals.
-A graph output showing the time evolution of the disease states within the population.
-  
+   1. Agents move within the simulation box, with infected individuals heading towards the hospital and dead agents being relocated to the cemetery.
+   2. Interactions between agents are computed to determine the spread of infection based on proximity and collision detection.
+   3. The states of agents are updated according to disease progression rules and whether they are within the hospital area.
+   4. Counters for each disease state are updated, and the day's statistics are displayed on the screen.
+   5. The matplotlib plot is updated to reflect the new counts.
+      
+## Installation
+To run this simulation, you will need Python installed on your system, along with the following Python packages:
+- turtle
+- matplotlib
+- random
+You can install the required packages using pip:
+
+```bash
+pip install turtle matplotlib, random, turtle
+```
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/SEIRD-model-simulation.git
+cd SEIRD-model-simulation
+```
+
+## Usage
+
+Execute the modeler.py script to start the simulation:
+
+```bash
+python modeler.py
+```
+This will open a window displaying the turtle graphics and initiate the simulation. A plot will be generated and saved as SIR.png to visualize the epidemic's progression.
+
+## Customization
+
+The simulation parameters can be adjusted to represent different scenarios. These include the size of the population, the initial number of infected individuals, and the size of specialized areas such as hospitals.
+
